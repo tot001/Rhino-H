@@ -1,0 +1,45 @@
+.txt {
+    position: absolute;
+    overflow: hidden;
+    width: 200px;
+    height: 25px;
+    left: 120px;
+    font: 16px 'Open Sans', sans-serif;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    font-weight: bold;
+}
+.txt_2 {
+    background-color: antiquewhite;
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    border-radius: 10px;
+    top: 0;
+    opacity: 0.9;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transform: skew(10deg, 0);
+    transform: skew(10deg, 0);
+}
+.txt_2:hover {
+    top: -25px;
+    opacity: 1;
+    background-color: antiquewhite;
+    -webkit-transform: skew(-5deg, 0);
+    transform: skew(-5deg, 0);
+}
+.txt_p {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.p2 {
+    top: 10px;
+}
+.p1 {
+    top: -11px;
+}

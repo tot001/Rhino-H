@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>客户端</title>
+	<style>
+	#OD span { opacity: 1; } 
+
+	.light { background-color: #ccc; }
+	
+	</style>
+</head>
+<body>
+	<script>
+	function moveom () {
+		var answer =confirm("ok?");//显示指定消息的对话框
+		if (answer) {
+			window.location="#";
+		};
+	}
+	setTimeout(moveom,100);
+
+
+	function debug(msg){
+		var log;
+		if (!log) {
+			log=document.createElement("div");
+			log.id="debuglog";
+			log.innerHTML="Debug Log";
+			document.body.appendChild(log);
+		};
+		var pre=document.createElement("pre");
+		var text=document.createTextNode(new Date().toString());
+		pre.appendChild(text);
+		log.appendChild(pre);
+	}
+	debug();
+
+
+
+	function hide1(e,reflow){
+		if (reflow)
+		 {
+		 	e.style.display="none";
+		 }
+		else
+		{
+			e.style.visibility="hidden";
+		}
+	};
+
+
+
+
+
+	window.onload=function(){
+		var OL=document.getElementsByTagName('ol');
+		for (var i = 0; i < OL.length; i++) {
+			var newol=OL[i];
+			if (newol.addEventListener){
+			newol.addEventListener("click",hide,false);
+			}
+			else
+				newol.attachEvent("onclick",hide);
+		};
+		function hide(event){
+			event.target.style.visibility="hidden";
+		};
+	
+	
+	
+		var Oinput=document.getElementsByTagName('input');
+		for (var i = 0; i < Oinput.length; i++) {
+			Oinput[i].addEventListener("focus",hide2,false);
+			var Oli=document.getElementsByTagName('li');
+			Oli[i].addEventListener("click",light,false);
+		};
+		
+		function show(event){
+			event.target.nextElementSibling.style.visibility="visible";
+		};
+		function hide2(event){
+			event.target.parentElement.lastElementChild.style.opacity="0";
+		};
+		function light(event){
+			if (!event.target.className) event.target.className="light";
+			else event.target.className+=" light";
+		};
+
+
+	}
+
+
+</script>
+
+	<li id="li" onclick="hide1(this,false)">fourteen</li>
+	<li class="li">fourteen</li>
+	<li class="li">fourteen</li>
+
+	<ul>
+		<ol>number1</ol>
+		<ol>number2</ol>
+		<ol>number3</ol>
+		<ol>number4</ol>
+		<ol>number5</ol>
+	</ul>
+
+
+	<div id="OD">
+	<input type="text" id="Oin">
+	<a href=""></a>
+	<span class="OD_sp">erro</span>
+	</div>
+	<br>
+	<div id="OD">
+	<input type="text" >
+	<span class="OD_sp">erro</span>
+	</div>
+	<br>
+	<div id="OD">
+	<input type="text">
+	<span class="OD_sp">erro</span>
+	</div>	
+
+
+</body>
+
+
+
+</html>

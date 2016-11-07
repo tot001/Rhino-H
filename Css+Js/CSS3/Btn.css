@@ -1,0 +1,36 @@
+button {
+    margin: 30px 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid;
+    font: 16px 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.btn {
+    color: #ACE7EF;
+    border-color: #ACE7EF;
+    overflow: hidden;
+    position: relative;
+}
+.btn:hover:before {
+    width: 200%;
+}
+.btn:before {
+    content: "";
+    background-color: #53CDD8;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: -30px;
+    height: 100%;
+    width: 0;
+    -webkit-transform: skew(45deg, 0);
+    transform: skew(45deg, 0);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}

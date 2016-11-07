@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Barrage</title>
+</head>
+	<style>
+		#in_con{
+			
+		}
+		#send{
+			border-radius:5px;
+			border: none;
+			padding: 5px;
+		}
+		#con{
+			position: absolute;
+			margin:10%;
+			width: 50%;
+			height:25%;
+			border: 1px solid;
+			overflow: hidden;
+		}
+		pre{
+			position: relative;
+			margin:0;
+			white-space:nowrap; 
+    		-webkit-animation: lmove 5s linear ;
+    		 animation-fill-mode: forwards;
+		}
+		.bar1{
+			color: red;
+			-webkit-animation: lmove 5s linear ;
+			 animation-fill-mode: forwards;
+		}
+		.bar2{
+			color:blue;
+			-webkit-animation: lmove 5s linear ;
+			 animation-fill-mode: forwards;
+
+		}
+	@-webkit-keyframes lmove {
+		form{
+			left: 0;
+		}
+		to{
+			left: -100%;
+		}
+	</style>
+<body>
+	<input type="text" id="in_con">
+	<button id="send">Send</button>
+	<div id="con">
+
+	</div>
+	<script>
+		window.onload=function(){
+			var oInput=document.getElementById('in_con');
+			var oSend=document.getElementById('send');
+			var oCon=document.getElementById('con');
+
+			oSend.onclick=function(){
+				var id = Math.ceil(Math.random()*3);
+				var oTop = Math.ceil(Math.random()*45);
+				var	oCon=document.getElementById('con');
+				var Barrage=document.createElement("pre");
+				var oP=document.getElementsByTagName('pre');
+				var Con={l:oCon.offsetLeft,w:oCon.offsetWidth};
+
+				if (oP.length>=6) {
+					for (var i = 0; i < 3; i++) {
+					oCon.removeChild(oCon.childNodes[i]);
+					}
+				}
+				if (!oInput.value) {
+					return false;
+				}
+				else{
+					Barrage.style.left=(Con.l+Con.w)+"px";
+					Barrage.style.top=oTop+"px";
+					Barrage.className='bar'+id;
+					Barrage.innerHTML=oInput.value;
+					oCon.appendChild(Barrage);
+
+					oInput.value="";
+					oInput.focus();
+				}
+
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="btn.css">
+    <link rel="stylesheet" href="txt.css">
+    <link rel="stylesheet" href="load.css">
+    <style>
+    body{
+        background: antiquewhite;
+        -webkit-justify-content:center;
+        justify-content:center;
+    }
+    .back{
+        position: relative;
+        margin: 20px;
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        background: palevioletred;
+        transform: translateZ(-1px) rotateY(180deg);
+        transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+        -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+    </style>
+</head>
+<body>
+    <button class="btn">
+        Btn
+    </button>
+    <div class="txt">
+        <div class="txt_2">            
+        <p class="txt_p p1">Bicycle Santorini</p>
+        <p class="txt_p p2">&nbspSabin Uivarosan</p>
+        </div>
+    </div>
+    <div class="load">
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+    </div>
+    <div class="back">
+        
+    </div>
+</body>
+</html>

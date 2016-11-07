@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding:0;
+		}
+		#unfold{
+			margin: 10px;
+			padding: 5px;
+			background: #ccc;
+			width: 25px;
+			height: 25px;
+			border-radius: 5px;
+		}
+
+
+		.full{
+			position: absolute;
+			display: none;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			height:100%;
+			width:100%;
+			z-index: 1000;
+			background: black;
+			}
+		.mm{
+			position: absolute;
+			z-index: 1010;
+			width: 200px;
+			height: 200px;
+			background:red;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="unfold"> 
+		
+	</div>
+	<div  class="full" >
+	</div>
+			<div class="mm"></div>
+	<script>
+		window.onload=function () {
+			$('#unfold').click(function(){
+				$('.full').show();
+				$('.mm').show();
+			});
+			$('.full').click(function(){
+				$('.full').hide();
+			});
+		}
+	</script>
+</body>
+</html>

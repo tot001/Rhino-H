@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.reveal * {
+			display: none;
+		}
+		.reveal *.handle{
+			display: block;
+		}
+	</style>
+	<script>
+	//P311
+		window.onload=function () {
+			var elements=document.getElementsByClassName('reveal');
+			for (var i = 0; i < elements.length; i++) {
+				var elt=elements[i];
+				var title=elt.getElementsByClassName('handle')[0];
+				addRevealHandler(title,elt);
+			}
+			function addRevealHandler(t,e){
+				t.onclick=function(){
+					if (e.className=="reveal") {
+						e.className="revealed";
+					}
+					else if(e.className=="revealed"){
+						e.className="reveal";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<h1 class="handle">Click Here Hidden Text</h1>
+		<p>This is hidden. when you click on the title</p>
+	</div>
+	<div class="reveal">
+		<h1 class="handle">Click Here Hidden Text</h1>
+		<p>This is hidden. when you click on the title</p>
+	</div>
+</body>
+</html>

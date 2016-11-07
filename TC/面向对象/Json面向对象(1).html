@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var json={
+			name:'blue',
+			pass:'123',
+			showName:function () {
+				alert('username:'+this.name)
+			}
+		};
+		json.showName();
+
+		//原型方式
+		function A(){
+		}
+		A.prototype.show = function() {
+			alert("prototype")
+		};
+		var Oa=new A();
+		Oa.show();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

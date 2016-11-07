@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<style>
+		div{
+			margin:0;
+			padding:0;
+		}
+		#parent_div{
+			position: relative;
+			overflow: hidden;
+			width:100%;
+			height: 100px;
+			border: 1px solid black;
+		}
+		#div1{
+			position: absolute;
+			background:#F44336;
+			width: 300%;
+			height: 100px;
+		}
+		ul{
+			width: 100%;
+		}
+		ul li{
+			float:left;
+			width: 33.3%
+		}
+
+	</style>
+</head>
+<body>
+	<script>
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		var event = event || window.event;
+		var divX=0;
+		var divY=0;
+
+		oDiv1.addEventListener('touchstart',start,false);
+		oDiv1.addEventListener('touchmove',move,false);
+		oDiv1.addEventListener('touchend',hend, false);
+
+		function start(ev){				
+			var oEve=ev||event;
+			divX=oEve.touches[0].clientX-oDiv1.offsetLeft;
+			divY=oEve.touches[0].clientY-oDiv1.offsetTop;
+		}
+
+		function move(ev){
+			var oEve=ev||event;
+			var X=oEve.touches[0].clientX-divX;
+			var Y=oEve.touches[0].clientY-divY;
+			var Dw=oDiv1.offsetWidth;
+			
+			if (X>=Dw/10) {
+				oDiv1.style.transition=1+"s";
+				X=0;
+			}
+			else if (X<=(Dw/-3)*2-(Dw/10)) {
+				oDiv1.style.transition=1+"s";
+				X=(oDiv1.offsetWidth/-3)*2;
+			}
+			else{
+				oDiv1.style.transition=0+"s";
+			};	
+
+				// if(X>document.documentElement.clientWidth)X=document.documentElement.clientWidth-oDiv1.offsetWidth;
+
+				// if (Y<0)Y=0;
+
+				// if (Y>document.documentElement.clientHeight)
+				// Y=document.documentElement.clientHeight-oDiv1.offsetHeight;
+
+				oDiv1.style.left=X+"px";
+				// oDiv1.style.top=Y+"px";
+			}
+		
+		function hend(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+
+}
+	</script>
+	<div id="parent_div">
+		<div id="div1" class="cp">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</div>
+</body> 
+</html>

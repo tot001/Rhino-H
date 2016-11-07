@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //工程方式构造对象
+    function createPerson(name,sex) //构造函数
+    {
+        var obj=new Object();
+        obj.name=name;
+        obj.sex=sex;
+        obj.showNam=function () {
+            alert("Myname is:"+this.name);
+        };
+        obj.showsex=function () {
+            alert("sex:"+this.sex)
+        };
+        return obj;
+    }
+    var p1=createPerson('tot','man');
+    p1.showNam();
+    p1.showsex();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<style>
+		#num{
+			margin:5px;
+			width: 30%;
+		}
+		#div1{
+			position: absolute;
+			margin:5px;
+			background-color: #ccc;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload=function(){
+			var oDiv1=document.getElementById('div1');
+			var oBtn=document.getElementById('btn');
+			var oNum=document.getElementById('num');
+			var divX=0;
+			var divY=0;
+
+			oBtn.addEventListener('click',function(){
+				oDiv1.style.transition=oNum.value+"s";
+			},false);
+
+			oDiv1.onmousedown=function(ev){				
+				var oEve=ev||event;
+				divX=oEve.clientX-oDiv1.offsetLeft;
+				divY=oEve.clientY-oDiv1.offsetTop;
+
+			document.onmousemove=function(ev){
+				var oEve=ev||event;
+				var X=oEve.clientX-divX;
+				var Y=oEve.clientY-divY;
+				if (X<0)X=0;
+
+				if(X>document.documentElement.clientWidth)X=document.documentElement.clientWidth-oDiv1.offsetWidth;
+
+				if (Y<0)Y=0;
+
+				if (Y>document.documentElement.clientHeight)
+				Y=document.documentElement.clientHeight-oDiv1.offsetHeight;
+
+				oDiv1.style.left=X+"px";
+				oDiv1.style.top=Y+"px";
+			}
+		
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+	}
+	</script>
+	<input type="number" id="num">
+	<button id="btn">Chilck</button>
+	<div id="div1"></div>
+</body> 
+</html>

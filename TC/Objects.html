@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#btn{
+			margin: 20px 20px 15px 20px;
+			padding: 5px;
+			border-radius: 15%;
+			background: none;
+			border: 1px solid #DCC0BE;
+		}
+		#div1{
+			opacity: 0;
+			margin-left: 20px;
+			background:#EFEFE4;
+			width: 0;
+			height: 0;
+
+		}
+		#div_1{
+			opacity: 1;
+			margin-left: 20px;
+			background:#EFEFE4;
+			width: 250px;
+			height: 200px;
+			transition: all 2s;
+			transform:rotateZ(180deg) rotateY(-185deg) rotateX(180deg)
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload=function () {
+			var oBtn=document.getElementById('btn');
+			var oDiv1=document.getElementById('div1');
+			oBtn.onclick=function(ev){
+				var oEvent=ev||event;
+				oDiv1.id="div_1";
+				oEvent.cancelBubble=true;
+			}
+			oDiv1.onmouseover=function(){
+				document.onclick=null;
+			}
+			oDiv1.onmouseout=function(){
+				document.onclick=function(){
+					oDiv1.id="#div1";
+				}
+			}
+			document.onclick=function(){
+				oDiv1.id="#div1";
+			}
+
+
+		}
+	</script>
+	<button id="btn" >Show</button>
+	<div id="div1">a</div>
+</body>
+</html>

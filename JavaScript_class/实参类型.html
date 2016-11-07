@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isArrayLike(obj) { //isArrayLike()检查是否为数组
+        if (obj && typeof obj === "object" && isFinite(obj.length) && obj.length >= 0 && obj.length === Math.floor(obj.length) && obj.length < 4294967296)return true;
+        else return false;
+    }
+    function sum(a) {
+        if (isArrayLike(a)) {
+            var total = 0;
+            for (var i = 0; i < a.length; i++) {
+                var element = a[i];
+                if (element == null)continue;
+                if (isFinite(element)) total += element;
+                else throw new Error("sum():elements must be finite numbers");
+            }
+            return total;
+        }
+        else throw new Error("sum():argument must be array-like");
+    }
+    console.log(sum(["asdf",3]))
+</script>
+</body>
+</html>

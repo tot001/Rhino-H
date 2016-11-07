@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function createPerson(name,sex) //构造函数
+    {
+        this.name=name;
+        this.sex=sex;
+        this.showNam=function () {
+            alert("Myname is:"+this.name);
+        };
+        this.showsex=function () {
+            alert("sex:"+this.sex)
+        };
+    }
+    var p1=new createPerson('tot','ooo');
+    p1.showNam();
+</script>
+</body>
+</html>

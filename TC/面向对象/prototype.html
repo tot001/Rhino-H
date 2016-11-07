@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr1=[12,516,156,23];
+    var arr2=[45,564,48,56];
+    //Array 类的原型上加一种方法
+    Array.prototype.sum=function () {
+        var result=0;
+        for (var i=0;this.length;i++){
+            result += this[i];
+        }
+        return result;
+    };
+    alert(arr1.sum()+"   "+arr2.sum());
+
+    //给系统对象添加 方法或属性 例：
+    String.prototype.trim=function () {
+        return this.replace(/^\s+|\s+$/g,"");
+    };
+    var str="   dsadasf adsfsd    ";
+    alert("("+str.trim()+")")
+</script>
+</body>
+</html>

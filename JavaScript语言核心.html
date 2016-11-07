@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+window.onload=function() {
+	var p=document.getElementsByTagName('p');
+		for (var i = 0; i < p.length; i++) {
+			if (i % 2==0) {
+				p[i].style.background="rgb(236, 206, 160)";
+			}
+			else {
+				p[i].style.background="rgb(216, 208, 208)";
+			} 
+		};
+	//对象
+	var book={
+		topic:"JavaScript",
+		fat:true,
+		b1:[1,3]
+		};
+	//通过"."和"[]"来访温对象属性
+	p[0].innerHTML="book.topic + book.b1[1] + book['fat']:";
+	p[1].innerHTML=book.topic+"  "+book.b1[1]+"  "+book["fat"];
+
+
+	//数组
+	var prime=[[2,4,8,6],{p1:1,P2:3}];
+		prime[4]=10;//添加一个新元素
+
+	var square=function(x){
+		return x*x
+		};
+		square(5);//=>25
+
+	p[2].innerHTML="prime[1].p1 + prime[0][3]:";
+	p[3].innerHTML=prime[1].p1+"  "+prime[0][3];
+
+
+	var a=[];
+	a.push(1,2,3);//push()+方法向数组添加新元素
+	a.reverse();//将数组元素次序反转
+	// alert(a) => 3,2,1
+
+	//计算阶乘的函数
+	function Factorial(n){
+		var product = 1;
+		while(n > 1){
+			product *= n;
+			n--;//n循环的次数
+		}
+		return product;
+	};
+	//=1*4*3*2
+	p[4].innerHTML="while-Factorial Result:"+ Factorial(4);
+
+	function Factorial2(n){
+		var product=1;
+		for (var i = 1; i <= n; i++) {
+			product *= i;//i从2自增至n
+		};
+		return product;
+	};
+	p[5].innerHTML="For-Factorial Result:"+ Factorial2(5);
+
+
+	function Point(x,y){
+		this.x=x;
+		this.y=y;
+	}
+	var ox=new Point(110,2);
+	Point.prototype.r=function(){
+		return Math.sqrt(
+			this.x*this.x+this.y*this.y)
+	};
+
+	p[6].innerHTML= ox.r();
+}
+	</script>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cookie</title>
+</head>
+<script>
+window.onload=function () {
+	var name=localStorage.username;
+	 name=localStorage["username"];
+		if (!name) {
+			name=prompt('What is your name?');
+			localStorage.username=name;
+		};
+		for(var n in localStorage){
+			var value=localStorage[n];
+			document.write(value+"<br/>")
+		};
+
+
+		localStorage.x=10;//自动转为字符串
+		var x=parseInt(localStorage.x);//手动转化为数字类型
+
+		//存储一个日期类型数据的时候进行编码。获取的时候进行解码
+		localStorage.lastRead=(new Date()).toUTCString();
+		var lastRead=new Date(Date.parse(localStorage.lastRead));
+		document.write(lastRead);
+
+		//以'TOT'的名字存储一个值
+		localStorage.setItem("TOT",34);
+		localStorage.getItem("TOT");//Ge值
+
+		//枚举所有储存的名字和值
+		for (var i = 0; i < localStorage.length; i++) {
+			var name=localStorage.key(i);
+			//添加键值对：localStorage.setItem(key,value)
+			//获取键值：localStorage.getItem(key)
+			//删除键值对：localStorage.removeItem(key)
+			var vl=localStorage.getItem(name);
+			}
+		//删除
+			localStorage.removeItem('');
+			//localStorage.clear('');
+}
+</script>
+<body>
+	
+</body>
+</html>

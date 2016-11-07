@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#clock{
+			font:bold 24pt sans;
+			background: #ddf;
+			padding: 10px;
+			border: solid black 2px;
+			border-radius: 10px;
+		}
+	</style>
+	<script>
+	//P314
+		function displayTime() {
+			var elt=document.getElementById('clock');
+			var now=new Date();
+			elt.innerHTML=now.toLocaleTimeString();
+			setTimeout(displayTime,1000);
+		}
+		window.onload=displayTime;
+	</script>
+</head>
+<body>
+	<h1>Digital</h1>
+	<span id="clock"></span>
+
+	<a href='javascript:var e="",r="";
+	do{e=prompt("Expression:"+e+"\n"+r+"\n",e);
+	try{r="Result:"+eval(e);}
+	catch(ex){r=ex;}
+	} while(e);void 0'>JavaScript Evaluator</a>
+	<!--
+	P319
+	prompt 提示
+	eval() 函数可计算某个字符串
+	 -->
+</body>
+</html>

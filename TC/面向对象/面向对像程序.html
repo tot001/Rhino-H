@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	//构造函数加属性 
+	function CreatePerson(name,pass) { //构造函数
+		//1. var obj=new Object();
+		//2.加工
+		this.name=name;
+		this.pass=pass;
+		//3. return obj;
+	};
+	//用原型加方法 
+	CreatePerson.prototype.showName = function() { //原型
+		alert('userName:'+this.name);
+	};
+	CreatePerson.prototype.showPass = function() {
+		alert('Password:'+this.pass);
+	};
+
+	var obj=new CreatePerson('blue','12341234');
+	var obj2=new CreatePerson('red','12341234');
+	//加上new
+	//创建了一个空白对象(1)
+	//替你返回了这对象 (3)
+
+	obj.showName();
+	obj2.showName();
+	alert(obj.showName==obj2.showName);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
